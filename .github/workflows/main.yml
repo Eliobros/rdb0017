@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set up Ngrok
-        uses: wernight/ngrok-action@v2
+        uses: Eliobros/rdb0017
         with:
           authtoken: ${{ secrets.NGROK_AUTH_TOKEN }}  # Substitua pelo nome do segredo configurado no GitHub
 
