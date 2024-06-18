@@ -1,6 +1,6 @@
 name: Build and deploy RDP with Ngrok
 
-on:
+on: rdp_3
   push:
     branches:
       - main  # Substitua pela branch onde deseja que o workflow seja executado
