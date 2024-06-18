@@ -1,0 +1,24 @@
+name: Build and deploy RDP with Ngrok
+
+on:
+  push:
+    branches:
+      - main  # Substitua pela branch onde deseja que o workflow seja executado
+  workflow_dispatch:  # Isso permite acionar manualmente o workflow se necessário
+
+jobs:
+  build:
+    runs-on: windows-latest  # Substitua pela versão do sistema operacional desejado
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Ngrok
+        uses: wernight/ngrok-action@v2
+        with:
+          authtoken: ${{ secrets.NGROK_AUTH_TOKEN }}  # Substitua pelo nome do segredo configurado no GitHub
+
+      - name: Start Ngrok RDP
+        run: |
+          ngrok tcp --region=us 3389  # Substitua 'us' pela região desejada do Ngrok, se necessário
